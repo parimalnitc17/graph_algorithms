@@ -2,15 +2,7 @@
 using namespace std;
 typedef pair<int, int> iPair;
 
-struct edge {
-	int weight;
-	int st;
-	int dest;
-};
-
-
 void prims(int** arr, int V, int st, bool* visited, int* parent, priority_queue< iPair, vector <iPair> , greater<iPair> > &q, int* weight) {
-
 	visited[st] = true;
 
 	for (int i = 0; i < V; i++) {
@@ -21,7 +13,6 @@ void prims(int** arr, int V, int st, bool* visited, int* parent, priority_queue<
 
 		if (arr[st][i] > 0 && !visited[i]) {
 			q.push(make_pair(arr[st][i], i));
-
 			if (weight[i] > arr[st][i]) {
 				weight[i] = arr[st][i];
 				parent[i] = st;
@@ -75,7 +66,13 @@ int main()
 	}
 
 
-
+	delete[] parent;
+	delete[] weight;
+	delete[] visited;
+	for (int i = 0; i < N; i++) {
+		delete[] arr[];
+	}
+	delete[] arr;
 
 
 
